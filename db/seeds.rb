@@ -9,6 +9,16 @@ require 'random_data'
 end
 wikis = Wiki.all
 
+# Create users
+5.times do
+  User.create!(
+  #name:     RandomData.random_name,
+  email:    RandomData.random_email,
+  password: RandomData.random_sentence
+  )
+end
+users = User.all
+
 # Create standard user
 standard = User.create!(
   #name:     'Standard User',
