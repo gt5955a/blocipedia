@@ -9,5 +9,35 @@ require 'random_data'
 end
 wikis = Wiki.all
 
+# Create standard user
+standard = User.create!(
+  #name:     'Standard User',
+  email:    'standard@example.com',
+  password: 'helloworld',
+)
+standard.skip_confirmation!
+standard.save!
+
+# Create premium user
+premium = User.create!(
+  #name:     'Premium User',
+  email:    'premium@example.com',
+  password: 'helloworld',
+  role:     'premium'
+)
+premium.skip_confirmation!
+premium.save!
+
+# Create admin user
+admin = User.create!(
+  #name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+admin.skip_confirmation!
+admin.save!
+
 puts "Seed finished"
 puts "{Wiki.count} wikis created"
+puts "{User.count} users created"
