@@ -5,7 +5,7 @@ class DowngradeController < ApplicationController
   def create
     @user = current_user
     @user.update_attributes(role: 'standard')
-    @user.going_public
+    @user.make_public
 
     flash[:notice] = "You have successfully downgraded your account."
     redirect_to root_path
