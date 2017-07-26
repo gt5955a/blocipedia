@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   after_initialize { self.role ||= :standard }
 
   enum role: [:standard, :premium, :admin]
+
+  def going_public
+    self.wikis.each { |wiki| puts wiki.publicize }
+  end
 end
