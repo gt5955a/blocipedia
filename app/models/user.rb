@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   enum role: [:standard, :premium, :admin]
 
-  def going_public
+  def make_public
     self.wikis.each { |wiki| puts wiki.publicize }
   end
 end

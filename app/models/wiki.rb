@@ -4,6 +4,6 @@ class Wiki < ActiveRecord::Base
   scope :visible_to, -> (user) { user ? all : where(private: false) }
 
   def publicize
-    update_attributes(:public, true)
+    update_attribute(:private, false)
   end
 end
